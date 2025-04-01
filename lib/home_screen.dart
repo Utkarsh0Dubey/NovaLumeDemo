@@ -1,13 +1,8 @@
-// The listTile area will have the recommendations and the always on thingy
-// While the bell icon is for the notifications
-
 import 'package:auth_demo/dashboard.dart';
 import 'package:auth_demo/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:fl_chart/fl_chart.dart';
-import 'dashboard.dart';
-import 'profile_page.dart';
+import 'home_page_plots.dart'; // Import the updated plot widget
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -18,7 +13,7 @@ class HomeScreen extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Gradient Navbar App',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: Home_Screen(),
+      home: const Home_Screen(),
     );
   }
 }
@@ -60,7 +55,7 @@ class _Home_ScreenState extends State<Home_Screen> {
 
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 70, horizontal: 10),
+        padding: const EdgeInsets.symmetric(vertical: 70, horizontal: 10),
         color: Colors.white30,
         child: Column(
           children: [
@@ -86,9 +81,10 @@ class _Home_ScreenState extends State<Home_Screen> {
                       ),
                     ),
                     InkWell(
-                        onTap: () {},
-                        child: Icon(Icons.notifications,
-                            size: 30, color: Colors.black))
+                      onTap: () {},
+                      child: const Icon(Icons.notifications,
+                          size: 30, color: Colors.black),
+                    ),
                   ],
                 ),
               ],
@@ -99,11 +95,16 @@ class _Home_ScreenState extends State<Home_Screen> {
               indent: 10,
               endIndent: 10,
             ),
-            SizedBox(height: 400),
+
+            // Show the animated bar plot here.
+            const HomePageBarPlot(),
+
             const Divider(
               color: Colors.black54,
               thickness: 2,
             ),
+
+            // A sample list of dismissible tiles.
             Expanded(
               child: ListView.builder(
                 padding: EdgeInsets.zero,
@@ -112,7 +113,7 @@ class _Home_ScreenState extends State<Home_Screen> {
                   return Dismissible(
                     key: Key('unique_item_$index'),
                     child: Container(
-                      margin: EdgeInsets.symmetric(vertical: 5),
+                      margin: const EdgeInsets.symmetric(vertical: 5),
                       decoration: BoxDecoration(
                         color: Colors.transparent,
                         borderRadius: BorderRadius.circular(15),
@@ -121,20 +122,21 @@ class _Home_ScreenState extends State<Home_Screen> {
                           BoxShadow(
                             color: Colors.black.withOpacity(0.1),
                             blurRadius: 5,
-                            offset: Offset(0, 4),
+                            offset: const Offset(0, 4),
                           ),
                         ],
                       ),
-                      child: ListTile(
+                      child: const ListTile(
                         tileColor: Colors.transparent,
-                        title: const Text('List Tile '),
+                        title: Text('List Tile '),
                       ),
                     ),
                     direction: DismissDirection.horizontal,
                     background: Container(
                       decoration: BoxDecoration(
-                          color: Colors.redAccent,
-                          borderRadius: BorderRadius.circular(15)),
+                        color: Colors.redAccent,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
                       alignment: Alignment.center,
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: const Icon(Icons.delete, color: Colors.black),
@@ -151,7 +153,7 @@ class _Home_ScreenState extends State<Home_Screen> {
         children: [
           Container(
             height: 60,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [Colors.brown, Colors.brown],
                 begin: Alignment.topCenter,
@@ -165,7 +167,7 @@ class _Home_ScreenState extends State<Home_Screen> {
             backgroundColor: Colors.transparent,
             elevation: 0,
             selectedItemColor: Colors.white,
-            unselectedItemColor: Colors.grey[400],
+            unselectedItemColor: Colors.grey,
             selectedFontSize: 14,
             unselectedFontSize: 12,
             iconSize: 28,
