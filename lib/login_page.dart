@@ -1,6 +1,8 @@
+import 'package:auth_demo/check.dart';
 import 'package:auth_demo/quiz_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'home_screen.dart';
 import 'sign_up.dart';
 
@@ -124,9 +126,9 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 children: [
                   // Title
-                  const Text(
+                   Text(
                     'Sign In',
-                    style: TextStyle(
+                    style: GoogleFonts.notoSerif(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 35,
@@ -185,7 +187,7 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text('Google ',
-                          style: TextStyle(
+                          style:  GoogleFonts.notoSerif(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
@@ -217,13 +219,21 @@ class _LoginPageState extends State<LoginPage> {
                             builder: (BuildContext context) =>
                                 HomeScreen()))
                       }),
+                  SizedBox(height: 20),
+                  InkWell(
+                      child: Text('CheckPage'),
+                      onTap: () => { Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              Check()))
+                      }),
+                  SizedBox(height: 20),
 
-                  const SizedBox(height: 80),
+                  const SizedBox(height: 40),
 
                   // Sign Up prompt
-                  const Text(
+                   Text(
                     "Don't have an account?",
-                    style: TextStyle(
+                    style:  GoogleFonts.notoSerif(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
@@ -330,9 +340,9 @@ class _LoginPageState extends State<LoginPage> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(10.0),
         ),
-        child: const Text(
+        child: Text(
           'LOGIN',
-          style: TextStyle(
+          style:  GoogleFonts.notoSerif(
             fontSize: 24,
             fontWeight: FontWeight.bold,
             color: Colors.black,
@@ -380,11 +390,11 @@ class _LoginPageState extends State<LoginPage> {
           borderRadius: BorderRadius.circular(10),
         ),
       ),
-      child: const Padding(
+      child:  Padding(
         padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
         child: Text(
           'Sign Up',
-          style: TextStyle(
+          style:  GoogleFonts.notoSerif(
             color: Colors.white,
             fontWeight: FontWeight.bold,
             fontSize: 24,

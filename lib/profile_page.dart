@@ -1,6 +1,8 @@
 import 'package:auth_demo/ContactUs.dart';
+import 'package:auth_demo/Personalnfo.dart';
 import 'package:auth_demo/home_screen.dart';
 import 'package:auth_demo/login_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'home_screen.dart';
@@ -13,7 +15,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.grey[200],
+        backgroundColor: Color(0xFFEBDDD0),
         appBar: AppBar(
             leading: IconButton(
               onPressed: () {
@@ -33,7 +35,7 @@ class ProfilePage extends StatelessWidget {
             title: Align(
               alignment: Alignment.centerLeft,
               child: Text(' My Profile ',
-                  style: TextStyle(
+                  style: GoogleFonts.notoSerif(
                       color: Colors.white,
                       fontSize: 32,
                       fontWeight: FontWeight.bold)),
@@ -53,7 +55,7 @@ class ProfilePage extends StatelessWidget {
                           top: 20, left: 20, right: 20),
                       padding: EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Color(0xFFD8BEAD),
                         // White background for content container
                         borderRadius: BorderRadius.circular(15),
                         boxShadow: [
@@ -74,7 +76,7 @@ class ProfilePage extends StatelessWidget {
                             SizedBox(height: 30),
                             Text(
                               'Your savings : 3567 Rs ',
-                              style: TextStyle(
+                              style: GoogleFonts.notoSerif(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 25),
@@ -82,11 +84,156 @@ class ProfilePage extends StatelessWidget {
                           ])),
                   SizedBox(height: 30),
                   Container(
+                    margin: const EdgeInsets.only(top: 10, left: 20, right: 20),
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                    height: 220,
+                    width: 400,
+                    decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 5,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                        color: Color(0xFFC8AB99),
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Column(
+                      children: [
+                        InkWell(
+                            onTap: () { Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Personalnfo()),
+                            );
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(children: [
+                                  Icon(Icons.person,
+                                      size: 23, color: Colors.black54),
+                                  Text(
+                                    ' Personal Info ',
+                                    style: GoogleFonts.notoSerif(
+                                        color: Colors.black, fontSize: 17),
+                                  ),
+                                ]),
+                                Icon(Icons.navigate_next,
+                                    color: Colors.black, size: 23)
+                              ],
+                            )),
+                        Divider(
+                          thickness: 1,
+                          color: Colors.grey,
+                        ),
+                        InkWell(
+                            onTap: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(children: [
+                                  Icon(Icons.phone_android,
+                                      size: 23, color: Colors.black),
+                                  Text(
+                                    ' Devices ',
+                                    style: GoogleFonts.notoSerif(
+                                        color: Colors.black, fontSize: 17),
+                                  ),
+                                ]),
+                                Icon(Icons.navigate_next,
+                                    color: Colors.black, size: 23)
+                              ],
+                            )),
+                        Divider(
+                          thickness: 1,
+                          color: Colors.grey,
+                        ),
+                        InkWell(
+                            onTap: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(children: [
+
+                                  Text(
+                                    ' Streak ',
+                                    style: GoogleFonts.notoSerif(
+                                        color: Colors.black, fontSize: 20),
+                                  ),
+                                ]),
+                                Row(  children: [
+                                  Icon(Icons.bolt,
+                                    color: Colors.black, size: 23),
+                                Text('7 ',style: GoogleFonts.notoSerif(
+                                    color: Colors.black, fontSize: 20),)
+                                  ]
+                                ),
+                              ],
+                            )),
+                        Divider(
+                          thickness: 1,
+                          color: Colors.grey,
+                        ),
+                        InkWell(
+                            onTap: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(children: [
+                                  Icon(Icons.attach_money,
+                                      size: 23, color: Colors.black),
+                                  Text(
+                                    ' Cost Goal ',
+                                    style: GoogleFonts.notoSerif(
+                                        color: Colors.black, fontSize: 17),
+                                  ),
+                                ]),
+                                Text('350 Rs',style: GoogleFonts.notoSerif(
+                                    color: Colors.black, fontSize: 20),)
+                              ],
+                            )),
+                        Divider(
+                          thickness: 1,
+                          color: Colors.grey,
+                        ),
+
+                        // The following inkwell navigates to the home page for checking purposes
+
+                        InkWell(
+                            splashColor: Colors.black,
+                            onTap: () {
+                              _showComparisonSheet(context);
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(children: [
+                                  Icon(Icons.stacked_line_chart_rounded,
+                                      size: 23, color: Colors.black),
+                                  Text(
+                                    '  Comparision ',
+                                    style: GoogleFonts.notoSerif(
+                                        color: Colors.black, fontSize: 17),
+                                  ),
+                                ]),
+                                Icon(Icons.navigate_next,
+                                    color: Colors.black, size: 23)
+                              ],
+                            )),
+                        Divider(
+                          thickness: 1,
+                          color: Colors.grey,
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 30),
+                  Container(
                       margin: EdgeInsets.symmetric(horizontal: 20),
                       padding: EdgeInsets.symmetric(
                           vertical: 10, horizontal: 10),
                       decoration: BoxDecoration(
-                        color: Colors.orange[100],
+                        color: Color(0xFFD8BEAD),
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -107,14 +254,14 @@ class ProfilePage extends StatelessWidget {
                             children: [
                               Text(
                                 'Post 1 title',
-                                style: TextStyle(
+                                style: GoogleFonts.notoSerif(
                                     fontSize: 23,
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold),
                               ),
                               Text(
                                 ' 24 Mar  09:35am',
-                                style: TextStyle(
+                                style: GoogleFonts.notoSerif(
                                   fontSize: 17,
                                   color: Colors.black,
                                 ),
@@ -145,7 +292,7 @@ class ProfilePage extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           vertical: 10, horizontal: 10),
                       decoration: BoxDecoration(
-                        color: Colors.orange[100],
+                        color: Color(0xFFD8BEAD),
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -166,7 +313,7 @@ class ProfilePage extends StatelessWidget {
                             children: [
                               Text(
                                 'Post 2 title',
-                                style: TextStyle(
+                                style: GoogleFonts.notoSerif(
                                     fontSize: 23,
                                     color: Colors.black, fontWeight: FontWeight
                                     .bold),
@@ -204,7 +351,7 @@ class ProfilePage extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           vertical: 10, horizontal: 10),
                       decoration: BoxDecoration(
-                        color: Colors.orange[100],
+                        color: Color(0xFFD8BEAD),
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -225,7 +372,7 @@ class ProfilePage extends StatelessWidget {
                             children: [
                               Text(
                                 'Post 3 title',
-                                style: TextStyle(
+                                style: GoogleFonts.notoSerif(
                                     fontSize: 23,
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold),
@@ -263,7 +410,7 @@ class ProfilePage extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           vertical: 10, horizontal: 10),
                       decoration: BoxDecoration(
-                        color: Colors.orange[100],
+                        color: Color(0xFFD8BEAD),
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -284,7 +431,7 @@ class ProfilePage extends StatelessWidget {
                             children: [
                               Text(
                                 'Post 4 title',
-                                style: TextStyle(
+                                style: GoogleFonts.notoSerif(
                                     fontSize: 23,
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold),
@@ -322,7 +469,7 @@ class ProfilePage extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           vertical: 10, horizontal: 10),
                       decoration: BoxDecoration(
-                        color: Colors.orange[100],
+                        color: Color(0xFFD8BEAD),
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -343,7 +490,7 @@ class ProfilePage extends StatelessWidget {
                             children: [
                               Text(
                                 'Post 5 title',
-                                style: TextStyle(
+                                style: GoogleFonts.notoSerif(
                                     fontSize: 23,
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold),
@@ -396,9 +543,9 @@ class ProfilePage extends StatelessWidget {
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.white),
                                 child: Text('Contact us',
-                                    style: TextStyle(
+                                    style: GoogleFonts.notoSerif(
                                       color: Colors.blue,
-                                      fontSize: 20,
+                                      fontSize: 23,
                                     )))
                           ])),
                   SizedBox(height: 20),
@@ -422,9 +569,9 @@ class ProfilePage extends StatelessWidget {
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.white),
                                 child: Text('Logout',
-                                    style: TextStyle(
+                                    style: GoogleFonts.notoSerif(
                                       color: Colors.red,
-                                      fontSize: 20,
+                                      fontSize: 23,
                                     )))
                           ])),
                   SizedBox(height: 50),
@@ -494,10 +641,49 @@ class _DualCircularProgressBarState extends State<Profile_Page>
       },
     );
   }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
 }
+  void _showComparisonSheet (BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true, // Allows the sheet to take more space
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (BuildContext context) {
+        return Container(
+          height: MediaQuery.of(context).size.height * 0.5, // Change 0.5 to adjust height
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min, // Ensures it wraps content
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Comparison Details',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.close, size: 24, color: Colors.black54),
+                    onPressed: () => Navigator.pop(context), // Close the sheet
+                  ),
+                ],
+              ),
+              Divider(),
+              SizedBox(height: 10),
+              Text(
+                'Here you can compare energy consumption over time.',
+                style: TextStyle(fontSize: 16),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () => Navigator.pop(context), // Close button
+                child: Text('Close'),
+              ),
+            ],
+          ),
+        );
+      },
+  );
+  }
+

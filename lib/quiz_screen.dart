@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Quiz_Screen extends StatelessWidget {
   @override
@@ -84,7 +85,7 @@ class _QuizScreenState extends State<QuizScreen> {
               child: Text(
                 key: ValueKey<int>(currentQuestion),
                 questions[currentQuestion],
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style:  GoogleFonts.notoSerif(fontSize: 26, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
             ),
